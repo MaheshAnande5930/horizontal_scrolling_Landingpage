@@ -11,6 +11,127 @@
     display: flex;
       
 }
+
+header {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    z-index: 250;
+    height: var(--header-height);
+  }
+  .header {
+    max-width: 1400px;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: var(--header-height);
+  }
+  .header .logo {
+    font-family: 'Poppins';
+    padding-left: 40px;
+    font-size:38px;
+  }
+  .header .menu .drawer {
+    display: flex;
+    height: var(--header-height);
+    padding-right: 100px;
+  }
+  .header .menu .drawer a {
+    text-transform: capitalize;
+    transition: all 0.1s linear;
+    display: flex;
+    align-items: center;
+    padding: 0 30px;
+    color: #000;
+    font-size: 17.4px;
+  }
+  .header .menu .drawer a:hover {
+    background: #f3f3f3;
+  }
+  .header .menu .drawer a:active {
+    background: #e0e0e0;
+  }
+  .menu-btn,
+  .close-btn {
+    background: transparent;
+    border: none;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    position: absolute;
+    left: 11px;
+    top: 8px;
+    display: none;
+    cursor: pointer;
+  }
+  .menu-btn {
+    left: 3px;
+  }
+  .close-btn:active,
+  .menu-btn:active {
+    background: #f3f3f3;
+  }
+  .img{
+   height:calc(100vh - 53px);
+   width:100%;
+    object-fit:cover;
+    display:block;
+  }
+  @media (max-width: 1140px) {
+    .header .menu .drawer {
+      padding: 0;
+    }
+  }
+  .body {
+    overflow: hidden;
+  }
+  @media (max-width: 920px) {
+    .header .menu {
+      display: flex;
+      position: fixed;
+      top: 0;
+      left: -925px;
+      width: 100%;
+      height: 100%;
+      z-index: 300;
+    }
+    .header .menu .blank {
+      height: 100%;
+      flex: 1;
+    }
+    .header .menu .drawer {
+      box-shadow: 2px 0 12px rgb(0 0 0 / 40%);
+      padding-top: 50px;
+      height: 100%;
+      width: 225px;
+      background: #fff;
+      flex-direction: column;
+      position: fixed;
+      left: -240px;
+      transition: all 200ms linear;
+      overflow: auto;
+    }
+    .header .menu .drawer a {
+      padding: 20px;
+    }
+    .menu-btn,
+    .close-btn {
+      display: block;
+    }
+    .header .logo {
+      margin-left: 17px;
+    }
+    .drawer-visible {
+      left: 0 !important;
+    }
+    .blur {
+      background: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(15px);
+      left: 0 !important;
+    }
+  }
 .container section{
     min-width: 100%;
     height: auto;
@@ -222,124 +343,162 @@ button{
     border-radius: 5px;
     border: solid #fff;
 }
- 
-header {
-    position: -webkit-sticky;
-    position: sticky;
-    top: 0;
-    z-index: 250;
-    height: var(--header-height);
+
+  /* animation */
+    .animate {
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
   }
-  .header {
-    max-width: 1400px;
-    width: 100%;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: var(--header-height);
+  
+  .one {
+    -webkit-animation-delay: 3.0s;
+    -moz-animation-delay: 3.0s;
+    animation-delay: 3.0s;
   }
-  .header .logo {
-    font-family: 'Poppins';
-    padding-left: 40px;
-    font-size:38px;
+  
+  .two {
+    -webkit-animation-delay: 1.0s;
+    -moz-animation-delay: 1.0s;
+    animation-delay: 1.0s;
   }
-  .header .menu .drawer {
-    display: flex;
-    height: var(--header-height);
-    padding-right: 100px;
+  
+  .three {
+    -webkit-animation-delay: 6.5s;
+    -moz-animation-delay: 6.5s;
+    animation-delay: 6.5s;
   }
-  .header .menu .drawer a {
-    text-transform: capitalize;
-    transition: all 0.1s linear;
-    display: flex;
-    align-items: center;
-    padding: 0 30px;
-    color: #000;
-    font-size: 17.4px;
+  
+  .four {
+    -webkit-animation-delay: 6.5s;
+    -moz-animation-delay: 6.5s;
+    animation-delay: 6.5s;
   }
-  .header .menu .drawer a:hover {
-    background: #f3f3f3;
-  }
-  .header .menu .drawer a:active {
-    background: #e0e0e0;
-  }
-  .menu-btn,
-  .close-btn {
-    background: transparent;
-    border: none;
-    height: 40px;
-    width: 40px;
-    border-radius: 50%;
-    position: absolute;
-    left: 11px;
-    top: 8px;
-    display: none;
-    cursor: pointer;
-  }
-  .menu-btn {
-    left: 3px;
-  }
-  .close-btn:active,
-  .menu-btn:active {
-    background: #f3f3f3;
-  }
-  .img{
-   height:calc(100vh - 53px);
-   width:100%;
-    object-fit:cover;
-    display:block;
-  }
-  @media (max-width: 1140px) {
-    .header .menu .drawer {
-      padding: 0;
+  @-webkit-keyframes fadeInUp {
+    from {
+      opacity: 0;
+      -webkit-transform: translate3d(0, 100%, 0);
+      transform: translate3d(0, 100%, 0);
+    }
+  
+    to {
+      opacity: 1;
+      -webkit-transform: none;
+      transform: none;
     }
   }
-  .body {
-    overflow: hidden;
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      -webkit-transform: translate3d(0, 100%, 0);
+      transform: translate3d(0, 100%, 0);
+    }
+  
+    to {
+      opacity: 1;
+      -webkit-transform: none;
+      transform: none;
+    }
   }
-  @media (max-width: 920px) {
-    .header .menu {
-      display: flex;
-      position: fixed;
-      top: 0;
-      left: -925px;
-      width: 100%;
-      height: 100%;
-      z-index: 300;
+  
+  .fadeInUp {
+    -webkit-animation-name: fadeInUp;
+    animation-name: fadeInUp;
+  }
+  
+  /*=== FADE IN DOWN ===*/
+  .fadeInDown {
+    -webkit-animation-name: fadeInDown;
+    animation-name: fadeInDown;
+  }
+  @-webkit-keyframes fadeInDown {
+    0% {
+      opacity: 0;
+      -webkit-transform: translate3d(0, -100%, 0);
+      transform: translate3d(0, -100%, 0);
     }
-    .header .menu .blank {
-      height: 100%;
-      flex: 1;
+    100% {
+      opacity: 1;
+      -webkit-transform: none;
+      transform: none;
     }
-    .header .menu .drawer {
-      box-shadow: 2px 0 12px rgb(0 0 0 / 40%);
-      padding-top: 50px;
-      height: 100%;
-      width: 225px;
-      background: #fff;
-      flex-direction: column;
-      position: fixed;
-      left: -240px;
-      transition: all 200ms linear;
-      overflow: auto;
+  }
+  @keyframes fadeInDown {
+    0% {
+      opacity: 0;
+      -webkit-transform: translate3d(0, -100%, 0);
+      transform: translate3d(0, -100%, 0);
     }
-    .header .menu .drawer a {
-      padding: 20px;
+    100% {
+      opacity: 1;
+      -webkit-transform: none;
+      transform: none;
     }
-    .menu-btn,
-    .close-btn {
-      display: block;
+  }
+  
+  /*=== FADE IN LEFT ===*/
+  @-webkit-keyframes fadeInLeft {
+    from {
+      opacity: 0;
+      -webkit-transform: translate3d(-100%, 0, 0);
+      transform: translate3d(-100%, 0, 0);
     }
-    .header .logo {
-      margin-left: 17px;
+  
+    to {
+      opacity: 1;
+      -webkit-transform: none;
+      transform: none;
     }
-    .drawer-visible {
-      left: 0 !important;
+  }
+  @keyframes fadeInLeft {
+    from {
+      opacity: 0;
+      -webkit-transform: translate3d(-100%, 0, 0);
+      transform: translate3d(-100%, 0, 0);
     }
-    .blur {
-      background: rgba(0, 0, 0, 0.6);
-      backdrop-filter: blur(15px);
-      left: 0 !important;
+  
+    to {
+      opacity: 1;
+      -webkit-transform: none;
+      transform: none;
     }
+  }
+  
+  .fadeInLeft {
+    -webkit-animation-name: fadeInLeft;
+    animation-name: fadeInLeft;
+  }
+  
+  /*==== FADE IN RIGHT ===*/
+  @-webkit-keyframes fadeInRight {
+    from {
+      opacity: 0;
+      -webkit-transform: translate3d(100%, 0, 0);
+      transform: translate3d(100%, 0, 0);
+    }
+  
+    to {
+      opacity: 1;
+      -webkit-transform: none;
+      transform: none;
+    }
+  }
+  @keyframes fadeInRight {
+    from {
+      opacity: 0;
+      -webkit-transform: translate3d(100%, 0, 0);
+      transform: translate3d(100%, 0, 0);
+    }
+  
+    to {
+      opacity: 1;
+      -webkit-transform: none;
+      transform: none;
+    }
+  }
+  
+  .fadeInRight {
+    -webkit-animation-name: fadeInRight;
+    animation-name: fadeInRight;
   }
